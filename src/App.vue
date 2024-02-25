@@ -3,7 +3,6 @@
   <form @submit.prevent >
     <h4>Создание поста</h4>
     <input 
-    name="title1"
     v-bind:value="title" 
     @input="title=$event.target.value;" 
     class="input" 
