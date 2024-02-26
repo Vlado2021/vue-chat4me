@@ -9,6 +9,7 @@
     type="text" 
     placeholder="Название">
     <input 
+    name="1111"
      v-bind:value="body" 
      @input="body=$event.target.value;"
      class="input" 
