@@ -4,7 +4,8 @@
       <h4>Создание поста</h4>
       <input name="title1" v-bind:value="title" @input="title = $event.target.value;" class="input" type="text"
         placeholder="Название">
-      <input v-bind:value="body" @input="body = $event.target.value;" class="input" type="text" placeholder="Описание">
+      <input name="body1" v-bind:value="body" @input="body = $event.target.value;" class="input" type="text"
+        placeholder="Описание">
       <button class="btn" v-on:click="createPost">Создать</button>
     </form>
     <div class="post" v-for="post in posts">
@@ -16,7 +17,8 @@
 </template>
 
 <script >
-
+import PostForm from "@/components/PostForm.vue";
+import PostList from "@/components/PostList.vue";
 export default {
   data() {
     return {
