@@ -1,33 +1,31 @@
 <template>
-    <form @submit.prevent >
+  <form @submit.prevent>
     <h4>Создание поста</h4>
-    <input 
-    v-bind:value="title" 
-    @input="title=$event.target.value;" 
-    class="input" 
-    type="text" 
-    placeholder="Название">
-    <input 
-     v-bind:value="body" 
-     @input="body=$event.target.value;"
-     class="input" 
-     type="text" 
-     placeholder="Описание">
+    <input v-bind:value="post.title" @input="post.title = $event.target.value;" class="input" type="text"
+      placeholder="Название">
+    <input v-bind:value="post.body" @input="post.body = $event.target.value;" class="input" type="text"
+      placeholder="Описание">
     <button class="btn" v-on:click="createPost">Создать</button>
   </form>
 </template>
    
 <script >
-   
-   export default {
-    
-   
-   }
-   
+export default {
+  data() {
+    return {
+      post: {
+        title: ' ',
+        body: ' '
+      }
+    }
+  }
+
+}
+
 </script>
    
 <style scoped>
- .input {
+.input {
   width: 100%;
   border: 2px solid green;
   border-radius: 5px;
@@ -42,7 +40,6 @@
   border: 2px solid green;
   border-radius: 5px;
   background-color: rgb(155, 219, 155);
-}  
-   
+}
 </style>
    
