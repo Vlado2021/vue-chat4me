@@ -1,7 +1,7 @@
 <template>
   <div class="app">
-    <post-form />
-    <post-list v-bind:posts="posts" />
+    <post-form @create="createPost" />
+    <post-list  v-bind:posts="posts" />
   </div>
 </template>
 
@@ -20,20 +20,15 @@ export default {
         { id: 3, title: 'JavaScript3', body: 'Описание поста3' }
       ],
 
-      title: '',
-      body: ''
-
+      
     }
   },
   methods: {
-    createPost() {
-      const newPost = {
-        id: Date.now(),
-        title: this.title,
-        body: this.body,
-      }
-
-      this.posts.push(newPost);
+    createPost(post) {
+      console.log(post);
+      console.log(second);
+      console.log(third);
+      //this.posts.push(post, second, third);
     },
 
 

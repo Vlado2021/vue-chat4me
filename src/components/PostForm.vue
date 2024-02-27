@@ -9,12 +9,25 @@
    
 <script >
 export default {
+  emits:'create',
   data() {
     return {
       post: {
         title: ' ',
         body: ' '
       }
+    }
+  },
+  metods:{
+    createPost(){
+      
+      this.post.id=Date.now();
+      this.$emit('create', this.post, 'second param', '333');
+      this.post={
+        title: ' ',
+        body: ' '
+      }
+      
     }
   }
 
