@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <post-form @create="createPost" />
-    <post-list  v-bind:posts="posts" />
+    <post-list v-bind:posts="posts" />
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
         { id: 3, title: 'JavaScript3', body: 'Описание поста3' }
       ],
 
-      
+
     }
   },
   methods: {
