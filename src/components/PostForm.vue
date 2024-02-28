@@ -7,9 +7,9 @@
   </form>
 </template>
    
-<script >
+<script>
 export default {
-  emits:'create',
+  emits:['create'],
   data() {
     return {
       post: {
@@ -22,7 +22,7 @@ export default {
     createPost(){
       
       this.post.id=Date.now();
-      this.$emit('create', this.post, 'second param', '333');
+      this.emit('create', this.post, 'second param', '333');
       this.post={
         title: ' ',
         body: ' '
