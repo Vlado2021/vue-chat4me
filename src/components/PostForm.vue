@@ -18,7 +18,7 @@ export default {
       }
     }
   },
-  metods: {
+  methods: {
     createPost() {
 
       this.post.id = Date.now();
