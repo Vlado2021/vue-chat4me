@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <post-form @create="createPost3" />
-    <post-list v-bind:posts1="posts" />
+    <post-list v-bind:posts="posts" />
   </div>
 </template>
 
