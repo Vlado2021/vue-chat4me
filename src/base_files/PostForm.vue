@@ -3,10 +3,10 @@
     <h4>Создание поста</h4>
     <input v-model="post.title" class="input" type="text" placeholder="Название">
     <input v-model="post.body" class="input" type="text" placeholder="Описание">
-    <button class="btn" v-on:click="createPost2">Создать</button>
+    <button class="btn" v-on:click="createPost">Создать</button>
   </form>
 </template>
-
+   
 <script>
 export default {
   emits: ['create'],
@@ -19,18 +19,21 @@ export default {
     }
   },
   methods:{
-    createPost2(){
-      this.post.id = Date.now();
+    createPost(){
+      
+      this.post.id=Date.now();
       this.$emit('create', this.post, 'second param', '333');
-      this.post = {
+      this.post={
         title: ' ',
         body: ' '
       }
+
     }
   }
-}
-</script>
 
+}
+
+</script>
    
 <style scoped>
 .input {
