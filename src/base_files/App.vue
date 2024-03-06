@@ -1,7 +1,7 @@
 <template>
   <div class="app">
-    <post-form @create="createPost3" />
-    <post-list v-bind:posts1="posts" />
+    <post-form @create="createPost" />
+    <post-list  v-bind:posts1="posts" />
   </div>
 </template>
 
@@ -18,18 +18,25 @@ export default {
         { id: 1, title: 'JavaScript', body: 'Описание поста' },
         { id: 2, title: 'JavaScript2', body: 'Описание поста2' },
         { id: 3, title: 'JavaScript3', body: 'Описание поста3' }
-      ]
+      ],
+
+      
     }
   },
   methods: {
-    createPost3(post) {
+    createPost(post) {
       console.log(post);
-      this.posts.push(post);
-    }
-  }
-}
-</script>
+      console.log(second);
+      console.log(third);
+      this.posts.push(post, second, third);
+    },
 
+
+  }
+
+}
+
+</script>
 
 <style >
 * {
