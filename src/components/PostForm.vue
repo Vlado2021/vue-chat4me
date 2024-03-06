@@ -9,7 +9,7 @@
    
 <script>
 export default {
-  emits:['create'],
+  emits: ['create'],
   data() {
     return {
       post: {
@@ -18,7 +18,7 @@ export default {
       }
     }
   },
-  methods:{
+  metods:{
     createPost(){
       
       this.post.id=Date.now();
@@ -27,7 +27,7 @@ export default {
         title: ' ',
         body: ' '
       }
-      
+
     }
   }
 
