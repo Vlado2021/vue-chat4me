@@ -25,10 +25,10 @@ export default {
   },
   methods: {
     createPost(post) {
-      console.log(post);
+      console.log(this.post);
       console.log(second);
       console.log(third);
-      //this.posts.push(post, second, third);
+      this.posts.push(post, second, third);
     },
 
 
