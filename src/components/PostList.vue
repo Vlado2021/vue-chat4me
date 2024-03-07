@@ -3,7 +3,7 @@
     <h3>Список пользователей</h3>
   <post-item 
    v-for="post in posts"
-   :post="posts"
+   :post5="post"
    />
 </div>
 </template>
@@ -33,4 +33,4 @@ export default {
   margin-top: 15px;
 }
 </style>
-   
+   @/components/PostItem.vue

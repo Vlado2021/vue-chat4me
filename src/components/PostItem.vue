@@ -1,7 +1,7 @@
 <template>
     <div class="post" >
-      <div><strong>Название: </strong>{{ post.title }} </div>
-      <div><strong>Описание: </strong>{{ post.body }} </div>
+      <div><strong>Название: </strong>{{ post5.title }} </div>
+      <div><strong>Описание: </strong>{{ post5.body }} </div>
     </div>
   </template>
      
@@ -10,7 +10,7 @@
   export default {
   
     props: {
-      post: {
+      post5: {
         type: Object,
         required: true
       }
@@ -27,4 +27,4 @@
     border-radius: 5px;
     margin-top: 15px;
   }
-  </style>
+  </style>./Postitem.vue
