@@ -1,7 +1,12 @@
 <template>
     <div class="post" >
+      <div>
       <div><strong>Название: </strong>{{ post5.title }} </div>
       <div><strong>Описание: </strong>{{ post5.body }} </div>
+    </div>
+    <div> 
+      <button class="post__btn">Удалить</button>  
+    </div>
     </div>
   </template>
      
@@ -26,5 +31,8 @@
     border: 2px solid green;
     border-radius: 5px;
     margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  </style>./Postitem.vue
+  </style>
