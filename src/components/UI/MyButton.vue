@@ -6,15 +6,8 @@
   
 <script>
   export default {
-   
-    data() {
-      return {
-        
-      }
-    },
-    methods:{
-      
-    }
+   name:'my-button'
+    
   }
 </script>
   
