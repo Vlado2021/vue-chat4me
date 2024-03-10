@@ -26,11 +26,6 @@ export default {
 </script>
    
 <style scoped>
-.post {
-  padding: 15px;
-  border: 2px solid green;
-  border-radius: 5px;
-  margin-top: 15px;
-}
+
 </style>
   

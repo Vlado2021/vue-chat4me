@@ -62,12 +62,5 @@ form {
   margin-top: 15px;
 }
 
-.btn {
-  margin-top: 10px;
-  padding: 10px 15px;
-  align-self: flex-end;
-  border: 2px solid green;
-  border-radius: 5px;
-  background-color: rgb(155, 219, 155);
-}
+
 </style>
