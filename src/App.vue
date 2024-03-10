@@ -54,13 +54,5 @@ form {
   margin-top: 15px;
 }
 
-.input {
-  width: 100%;
-  border: 2px solid green;
-  border-radius: 5px;
-  padding: 10px 15px;
-  margin-top: 15px;
-}
-
 
 </style>
