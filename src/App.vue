@@ -1,6 +1,9 @@
 <template>
-  <div class="app">
-    <post-form @create="createPost3" />
+  <div  class="app">
+    <my-dialog :show="true">
+      <post-form @create="createPost3" />
+    </my-dialog>
+    
     <post-list @remove="removePost"  v-bind:posts="posts" />
   </div>
 </template>
