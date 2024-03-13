@@ -4,7 +4,8 @@
     
 <script>
     export default {
-     name:'my-dialog'
+     name:'my-dialog',
+     
      props: {
          show: {
              type: Boolean,
