@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent>
-    <h4>Создание поста</h4>
+    <h4>Создать пост</h4>
     <my-input v-model="post.title"  type="text" placeholder="Название"/>
     <my-input v-model="post.body"  type="text" placeholder="Описание"/>
     <my-button  style="align-self: flex-end; margin-top: 10px " v-on:click="createPost2">Создать</my-button>

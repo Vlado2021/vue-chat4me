@@ -1,6 +1,6 @@
 <template>
-    <div class="dialog" v-if="show===true"> 
-        <div class="dialog__content">
+    <div class="dialog" v-if="show===true" @click="hideDialog"> 
+        <div @click.stop class="dialog__content">
             <slot>     </slot>
         </div>
     </div>
@@ -9,12 +9,20 @@
 <script>
     export default {
      name:'my-dialog',
+     emits: ['update:show'],
      props: {
          show: {
              type: Boolean,
              default: false
          }
-     } 
+     },
+     
+     methods: {
+        hideDialog(){
+            this.$emit('update:show', false);
+        }
+     }
+
     }
 </script>
     
@@ -28,6 +36,7 @@
         background: rgba(0, 0, 0, 0.5);
         position: fixed;
         display: flex;
+        
 
     }
     
@@ -37,6 +46,7 @@
         border-radius: 12px;
         min-height: 50px;
         min-width: 300px;
+        padding: 20px;
     }
     
   </style>
