@@ -24,9 +24,7 @@ export default {
   data() {
     return {
       posts: [
-        { id: 1, title: 'JavaScript', body: 'Описание поста' },
-        { id: 2, title: 'JavaScript2', body: 'Описание поста2' },
-        { id: 3, title: 'JavaScript3', body: 'Описание поста3' }
+        
       ],
       dialogVisible: false,
     }
@@ -46,6 +44,7 @@ export default {
     async fetchPosts () {
       try {
         const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10');
+        this.posts=response.data;
         console.log(response);
       } catch (error) {
         alert ('Ошибка')
