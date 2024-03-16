@@ -1,7 +1,14 @@
 <template>
   <div  class="app">
     <h1>Страница с постами</h1>
-    <my-button style="margin: 25px 0;" @click="showDialog">Создать пост</my-button>
+    <div class="app__btns">
+      <my-button  @click="showDialog">Создать пост</my-button>
+      <my-select
+        v-model="selectedSort"
+        :options="sortOptions"
+      />
+    </div>
+    
     <my-dialog   v-model:show="dialogVisible">
       <post-form @create="createPost3" />
     </my-dialog>
@@ -20,16 +27,22 @@ import PostList from "@/components/PostList.vue";
 import PostForm from "@/components/PostForm.vue";
 import MyButton from "@/components/UI/MyButton.vue";
 import axios from "axios";
+import MySelect from "@/components/UI/MySelect.vue";
 
 export default {
   components: {
-    PostForm, PostList
+    MySelect, MyButton, PostForm, PostList
   },
   data() {
     return {
       posts: [],
       dialogVisible: false,
       isPostloading: false,
+      selectedSort:'',
+      sortOptions:[
+        {value:'title', name:'По названию'},
+        {value:'body', name:'По содержимому'}
+      ]
     }
   },
   methods: {
@@ -46,18 +59,14 @@ export default {
     },
     async fetchPosts () {
       try {
-        this.isPostloading = true;
-        setTimeout( async () => {
+          this.isPostloading = true;
           const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10');
           this.posts = response.data;
-          this.isPostloading = false;
-          console.log(response);
-        }, 1000)
-        
+                        
       } catch (error) {
         alert ('Ошибка')
       } finally {
-        
+        this.isPostloading = false;
       }
     },
     
@@ -80,17 +89,10 @@ export default {
   padding: 20px;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+.app__btns {
+  margin:15px;
+  display:flex;
+  justify-content:space-between;
 }
-
-.post {
-  padding: 15px;
-  border: 2px solid green;
-  border-radius: 5px;
-  margin-top: 15px;
-}
-
 
 </style>
