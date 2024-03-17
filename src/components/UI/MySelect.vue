@@ -14,7 +14,7 @@
   <script>
     export default {
      name:'my-select',
-     emits: ['update:modalValue'],
+     emits: ['update:modelValue'],
      props:{
         modelValue:{
             type:String
@@ -26,7 +26,7 @@
      },
      methods:{
         changeOption(event){
-            this.$emit('update:modalValue', event.target.value)
+            this.$emit('update:modelValue', event.target.value)
         }
      } 
     }
