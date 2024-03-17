@@ -1,6 +1,12 @@
 <template>
-    <select > 
-        <option disabled value="">Выбирите из списка</option>
+    <select V-modal="modelValue" @change="changeOption"> 
+        <option  value="">Выбирите из списка</option>
+        <option 
+        v-for="option in options" 
+        :key="option.value" 
+        :value="option.value">
+        {{option.name}}
+        </option>
        
     </select>  
   </template>
@@ -19,8 +25,8 @@
         }
      },
      methods:{
-        changeOption(option){
-            this.$emit('update:modalValue', option)
+        changeOption(event){
+            this.$emit('update:modalValue', event.target.value)
         }
      } 
     }
