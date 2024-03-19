@@ -23,7 +23,9 @@
     v-if="!isPostloading"
     />
     <div v-else>Идет загрузка....</div>
-    <div class="page__wrapper">
+    <div ref="observer" class="observer"></div>
+    <!--  этот блок кода для пагинации через watch: this.fetchPost -->
+    <!-- <div class="page__wrapper">
       <div 
       v-for="pageNumber in totalPages" 
       :key="pageNumber"
@@ -33,7 +35,7 @@
       >
       {{ pageNumber }}
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -76,9 +78,31 @@ export default {
     showDialog(){
       this.dialogVisible= true
     },
-    changePage(pageNumber){
-      this.page=pageNumber;
+    // этот блок кода для пагинации через watch: this.fetchPost
+    //changePage(pageNumber){
+    //  this.page=pageNumber;
+    //},
+    async loadMorePosts () {
+      try {
+          this.page += 1;
+          const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
+            params: {
+              _page: this.page,
+              _limit: this.limit
+            }
+          });
+          this.totalPages=Math.ceil(response.headers['x-total-count']/this.limit)
+          this.posts = [...this.posts, ...response.data];
+                        
+      } catch (error) {
+        alert ('Ошибка')
+      } finally {
+       
+      }
+
+      
     },
+
     async fetchPosts () {
       try {
           this.isPostloading = true;
@@ -101,6 +125,18 @@ export default {
   },
   mounted() {
     this.fetchPosts();
+    console.log(this.$refs.observer);
+    var options={
+      rootMargin:'0px',
+      threshold: 1.0
+    }
+    var callback=(entries, observer) => {
+      if(entries[0].isIntersecting && this.page<this.totalPages) {
+        this.loadMorePosts()
+      };
+    }
+    var observer=new IntersectionObserver(callback, options)
+    observer.observe(this.$refs.observer)
   },
   computed:{
     sortedPosts(){
@@ -111,9 +147,10 @@ export default {
     }
    },
   watch: {
-    page(){
-      this.fetchPosts()
-    }
+    // этот блок кода для пагинации через watch: this.fetchPost
+    // page(){
+    //   this.fetchPosts()
+    // }
   }
 }
 </script>
@@ -145,5 +182,10 @@ export default {
 }
 .current-page{
   border: 2px solid green;
+}
+
+.observer{
+  height: 30px;
+  background:rgb(185, 255, 185);
 }
 </style>
