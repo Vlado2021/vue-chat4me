@@ -78,7 +78,6 @@ export default {
     },
     changePage(pageNumber){
       this.page=pageNumber;
-      this.fetchPosts();
     },
     async fetchPosts () {
       try {
@@ -112,7 +111,9 @@ export default {
     }
    },
   watch: {
-    
+    page(){
+      this.fetchPosts()
+    }
   }
 }
 </script>
