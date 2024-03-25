@@ -2,7 +2,7 @@
     <div class="navbar">
         <div style="cursor: pointer"  @click="$router.push('/')" >Vue 3</div>
             <div class="navbar__btn">
-                <my-button style="cursor: pointer" @click="$router.push('/users')">Пользователи</my-button>
+                <my-button style="cursor: pointer" @click="$router.push('/posts')">Посты</my-button>
                 <my-button style="margin-left: 10px;  cursor: pointer" @click="$router.push('/about')" > О нас</my-button>
             </div>
        
