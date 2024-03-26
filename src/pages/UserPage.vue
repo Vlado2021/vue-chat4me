@@ -23,7 +23,7 @@
       v-if="!isPostloading"
       />
       <div v-else>Идет загрузка....</div>
-      <div ref="observer" class="observer"></div>
+      <div v-intersection="loadMorePosts" class="observer"></div>
       <!--  этот блок кода для пагинации через watch: this.fetchPost -->
       <!-- <div class="page__wrapper">
         <div 
@@ -125,18 +125,18 @@
     },
     mounted() {
       this.fetchPosts();
-      console.log(this.$refs.observer);
-      var options={
-        rootMargin:'0px',
-        threshold: 1.0
-      }
-      var callback=(entries, observer) => {
-        if(entries[0].isIntersecting && this.page<this.totalPages) {
-          this.loadMorePosts()
-        };
-      }
-      var observer=new IntersectionObserver(callback, options)
-      observer.observe(this.$refs.observer)
+      // console.log(this.$refs.observer);
+      // var options={
+      //   rootMargin:'0px',
+      //   threshold: 1.0
+      // }
+      // var callback=(entries, observer) => {
+      //   if(entries[0].isIntersecting && this.page<this.totalPages) {
+      //     this.loadMorePosts()
+      //   };
+      // }
+      // var observer=new IntersectionObserver(callback, options)
+      // observer.observe(this.$refs.observer)
     },
     computed:{
       sortedPosts(){
