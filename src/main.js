@@ -5,6 +5,9 @@ import components from "@/components/UI";
 import router from "@/router/router";
 //import VIntersection from "@/directives/VIntersection.js";
 import directives from "@/directives";
+import store from "@/store/store.js";
+
+
 const app = createApp(App)
 
 components.forEach( 
@@ -17,5 +20,6 @@ directives.forEach(
 
 //app.use(router)
 
-app.use(router)
+app.use(router);
+app.use(store);
 app.mount('#app');
